@@ -7,6 +7,8 @@ import questions from '../questions.json'
 const Home: NextPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedOptions, setSelectedOptions] = useState<{answerByUser: string}[]>([])
+  const [score, setScore] = useState(0)
+  const [showScore, setShowScore] = useState(false)
 
   const handlePrevious = () => {
     const prevQuestion = currentQuestion - 1;
@@ -23,6 +25,24 @@ const Home: NextPage = () => {
     setSelectedOptions([...selectedOptions])
   }
 
+  const handleSubmit = () => {
+    let newScore = 0;
+    for (let i = 0; i < questions.length; i++) {
+      const answers = questions[i].answerOptions
+      for (let j = 0; j < answers.length; j++) {
+        if (
+          answers[j].isCorrect &&
+          answers[j].answer === selectedOptions[i]?.answerByUser
+        ) {
+          newScore += 1;
+          break;
+        }
+      }
+      setScore(newScore)
+      setShowScore(true)
+    }
+  }
+
   return (
     <div className="flex flex-col w-screen px-5 h-screen bg-[#1A1A1A] justify-center items-center">
       <Head>
@@ -30,7 +50,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex flex-col items-start w-full">
+      {
+        showScore ? (
+          <h1 className="text-3xl font-semibold text-center text-white">
+            You scored {score} out of {questions.length}
+          </h1>
+        ) : (
+          <>
+          <div className="flex flex-col items-start w-full">
         <h4 className="mt-10 text-xl text-white/60">Question {currentQuestion + 1} of {questions.length}</h4>
 
         <div className="mt-4 text-2xl text-white">
@@ -62,8 +89,14 @@ const Home: NextPage = () => {
         <button className="w-[49%] py-3 bg-indigo-600 rounded-lg" onClick={handlePrevious}>
           Previous
         </button>
-        <button className="w-[49%] py-3 bg-indigo-600 rounded-lg" onClick={handleNext}>Next</button>
+        <button
+          className="w-[49%] py-3 bg-indigo-600 rounded-lg"
+          onClick={currentQuestion + 1 === questions.length ? handleSubmit : handleNext}
+        >{currentQuestion + 1 === questions.length ? 'Submit' : 'Next'}</button>
       </div>
+          </>
+        )
+      }
     </div>
   )
 }
