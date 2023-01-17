@@ -2,13 +2,15 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react'
 
-import questions from '../questions.json'
+import questions from '../data/questions.json'
+import results from '../data/results.json'
 
 const Home: NextPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedOptions, setSelectedOptions] = useState<{answerByUser: string}[]>([])
   const [score, setScore] = useState(0)
   const [showScore, setShowScore] = useState(false)
+  const [result, setResult] = useState('')
 
   const handlePrevious = () => {
     const prevQuestion = currentQuestion - 1;
@@ -31,15 +33,28 @@ const Home: NextPage = () => {
       const answers = questions[i].answerOptions
       for (let j = 0; j < answers.length; j++) {
         if (
-          answers[j].isCorrect &&
           answers[j].answer === selectedOptions[i]?.answerByUser
         ) {
-          newScore += 1;
+          newScore += answers[j].points;
           break;
         }
       }
-      setScore(newScore)
-      setShowScore(true)
+    }
+    setScore(newScore)
+    setShowScore(true)
+
+    if (newScore > 60) {
+      setResult(results.above60)
+    } else if (newScore > 50) {
+      setResult(results.above50)
+    } else if (newScore > 40) {
+      setResult(results.above40)
+    } else if (newScore > 30) {
+      setResult(results.above30)
+    } else if (newScore > 20) {
+      setResult(results.above20)
+    } else {
+      setResult(results.under21)
     }
   }
 
@@ -52,9 +67,13 @@ const Home: NextPage = () => {
 
       {
         showScore ? (
-          <h1 className="text-3xl font-semibold text-center text-white">
-            You scored {score} out of {questions.length}
-          </h1>
+          <div className="w-2/4 ">
+            <h1 className="text-3xl font-semibold text-center text-white">
+              You scored {score}!
+            </h1>
+
+            <p className="text-xl text-center text-white py-3">{result}</p>
+          </div>
         ) : (
           <>
           <div className="flex flex-col items-start w-full">

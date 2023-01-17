@@ -1,0 +1,98 @@
+[
+  {
+    "question": "When do you feel your best?",
+    "answerOptions": [
+      { "answer": "In the morning", "points": 2 },
+      { "answer": "During the afternoon & and early evening", "points": 4 },
+      { "answer": "Late at night", "points": 6 }
+    ]
+  },
+  {
+    "question": "You usually walk ...",
+    "answerOptions": [
+      { "answer": "fairly fast, with long steps", "points": 6 },
+      { "answer": "fairly fast, with little steps", "points": 4 },
+      { "answer": "less fast head up, looking the world in the face", "points": 7 },
+      { "answer": "less fast, head down", "points": 2 },
+      { "answer": "very slowly", "points": 1 }
+    ]
+  },
+  {
+    "question": "When talking to people you ...",
+    "answerOptions": [
+      { "answer": "stand with your arms folded", "points": 4 },
+      { "answer": "have your hands clasped", "points": 2 },
+      { "answer": "have one or both your hands on your hips", "points": 5 },
+      { "answer": "touch or push the person to whom you are talking", "points": 7 },
+      { "answer": "play with your ear, touch your chin, or smooth your hair", "points": 6 }
+    ]
+  },
+  {
+    "question": "When relaxing, you sit with ...",
+    "answerOptions": [
+      { "answer": "your knees bent with your legs neatly side by side", "points": 4 },
+      { "answer": "your legs crossed", "points": 6 },
+      { "answer": "your legs stretched out or straight", "points": 2 },
+      { "answer": "one leg curled under you", "points": 1 }
+    ]
+  },
+  {
+    "question": "When something really amuses you, you react with ...",
+    "answerOptions": [
+      { "answer": "a big, appreciative laugh", "points": 6 },
+      { "answer": "a laugh, but not a loud one", "points": 4 },
+      { "answer": "a quiet chuckle", "points": 3 },
+      { "answer": "a sheepish smile", "points": 5 },
+      { "answer": "", "points": 2 }
+    ]
+  },
+  {
+    "question": "When you go to a party or social gathering ...",
+    "answerOptions": [
+      { "answer": "make a loud entrance so everyone notices you", "points": 6 },
+      { "answer": "make a quiet entrance, looking around for someone you know", "points": 4 },
+      { "answer": "make the quietest entrance, trying to stay unnoticed", "points": 2 }
+    ]
+  },
+  {
+    "question": "You're working very hard, concentrating hard, and you're interrupted; do you …",
+    "answerOptions": [
+      { "answer": "welcome the break", "points": 6 },
+      { "answer": "feel extremely irritated", "points": 2 },
+      { "answer": "vary between these two extremes", "points": 4 }
+    ]
+  },
+  {
+    "question": "Which of the following colors do you like most?",
+    "answerOptions": [
+      { "answer": "Red or Orange", "points": 6 },
+      { "answer": "Black", "points": 7 },
+      { "answer": "Yellow or Light Blue", "points": 5 },
+      { "answer": "Green", "points": 4 },
+      { "answer": "Dark Blue or Purple", "points": 3 },
+      { "answer": "White", "points": 2 },
+      { "answer": "Brown or Gray", "points": 1 }
+    ]
+  },
+  {
+    "question": "When you are in bed at night, in those last few moments before going to sleep, you lie ...",
+    "answerOptions": [
+      { "answer": "stretched out on your back", "points": 7 },
+      { "answer": "stretched out face down on your stomach", "points": 6 },
+      { "answer": "on your side, slightly curled", "points": 4 },
+      { "answer": "with your head on one arm", "points": 2 },
+      { "answer": "with your head under the covers", "points": 1 }
+    ]
+  },
+  {
+    "question": "You often dream that you are ...",
+    "answerOptions": [
+      { "answer": "falling", "points": 4 },
+      { "answer": "fighting or struggling", "points": 2 },
+      { "answer": "searching for something or somebody", "points": 3 },
+      { "answer": "flying or floating", "points": 5 },
+      { "answer": "you usually have dreamless sleep", "points": 6 },
+      { "answer": "your dreams are always pleasant", "points": 1 }
+    ]
+  }
+]
