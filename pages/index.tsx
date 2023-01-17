@@ -6,6 +6,7 @@ import questions from '../questions.json'
 
 const Home: NextPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [selectedOptions, setSelectedOptions] = useState<{answerByUser: string}[]>([])
 
   const handlePrevious = () => {
     const prevQuestion = currentQuestion - 1;
@@ -15,6 +16,11 @@ const Home: NextPage = () => {
   const handleNext = () => {
     const nextQuestion = currentQuestion + 1;
     nextQuestion < questions.length && setCurrentQuestion(nextQuestion)
+  }
+
+  const handleAnswerOption = (answer: string) => {
+    setSelectedOptions([(selectedOptions[currentQuestion] = { answerByUser: answer })])
+    setSelectedOptions([...selectedOptions])
   }
 
   return (
@@ -37,8 +43,16 @@ const Home: NextPage = () => {
           <div
             key={index}
             className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
+            onClick={() => handleAnswerOption(answer.answer)}
           >
-            <input type="radio" className="w-6 h-6 bg-black" />
+            <input
+              type="radio"
+              className="w-6 h-6 bg-black"
+              name={currentQuestion + ''}
+              value={answer.answer}
+              onChange={() => handleAnswerOption(answer.answer)}
+              checked={answer.answer === selectedOptions[currentQuestion]?.answerByUser}
+            />
             <p className="ml-6 text-white">{answer.answer}</p>
           </div>
         ))}
