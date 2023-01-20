@@ -59,7 +59,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className="flex flex-col w-screen px-5 h-screen bg-[#1A1A1A] justify-center items-center">
+    <div className="flex flex-col w-full p-5 h-full bg-[#1A1A1A] justify-center items-center">
       <Head>
         <title>Quiz App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
 
       {
         showScore ? (
-          <div className="w-2/4 ">
+          <div className="max-w-lg">
             <h1 className="text-3xl font-semibold text-center text-white">
               You scored {score}!
             </h1>
@@ -75,45 +75,45 @@ const Home: NextPage = () => {
             <p className="text-xl text-center text-white py-3">{result}</p>
           </div>
         ) : (
-          <>
-          <div className="flex flex-col items-start w-full">
-        <h4 className="mt-10 text-xl text-white/60">Question {currentQuestion + 1} of {questions.length}</h4>
+          <div className="flex flex-col max-w-lg">
+            <div className="items-start">
+              <h4 className="mt-10 text-xl text-white/60">Question {currentQuestion + 1} of {questions.length}</h4>
 
-        <div className="mt-4 text-2xl text-white">
-          {questions[currentQuestion].question}
-        </div>
-      </div>
+              <div className="mt-4 text-2xl text-white">
+                {questions[currentQuestion].question}
+              </div>
+            </div>
 
-      <div className="flex flex-col w-full">
-        {questions[currentQuestion].answerOptions.map((answer, index) => (
-          <div
-            key={index}
-            className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
-            onClick={() => handleAnswerOption(answer.answer)}
-          >
-            <input
-              type="radio"
-              className="w-6 h-6 bg-black"
-              name={currentQuestion + ''}
-              value={answer.answer}
-              onChange={() => handleAnswerOption(answer.answer)}
-              checked={answer.answer === selectedOptions[currentQuestion]?.answerByUser}
-            />
-            <p className="ml-6 text-white">{answer.answer}</p>
+            <div className="">
+              {questions[currentQuestion].answerOptions.map((answer, index) => (
+                <div
+                  key={index}
+                  className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
+                  onClick={() => handleAnswerOption(answer.answer)}
+                >
+                  <input
+                    type="radio"
+                    className="w-6 h-6 bg-black"
+                    name={currentQuestion + ''}
+                    value={answer.answer}
+                    onChange={() => handleAnswerOption(answer.answer)}
+                    checked={answer.answer === selectedOptions[currentQuestion]?.answerByUser}
+                  />
+                  <p className="ml-6 text-white">{answer.answer}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-between w-full mt-4 text-white">
+              <button className="w-[49%] py-3 bg-indigo-600 rounded-lg" onClick={handlePrevious}>
+                Previous
+              </button>
+              <button
+                className="w-[49%] py-3 bg-indigo-600 rounded-lg"
+                onClick={currentQuestion + 1 === questions.length ? handleSubmit : handleNext}
+              >{currentQuestion + 1 === questions.length ? 'Submit' : 'Next'}</button>
+            </div>
           </div>
-        ))}
-      </div>
-
-      <div className="flex justify-between w-full mt-4 text-white">
-        <button className="w-[49%] py-3 bg-indigo-600 rounded-lg" onClick={handlePrevious}>
-          Previous
-        </button>
-        <button
-          className="w-[49%] py-3 bg-indigo-600 rounded-lg"
-          onClick={currentQuestion + 1 === questions.length ? handleSubmit : handleNext}
-        >{currentQuestion + 1 === questions.length ? 'Submit' : 'Next'}</button>
-      </div>
-          </>
         )
       }
     </div>
