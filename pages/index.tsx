@@ -59,7 +59,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className="flex flex-col w-full p-5 h-full bg-[#1A1A1A] justify-center items-center">
+    <div className="flex flex-col w-full min-h-screen p-5 h-full bg-[#1A1A1A] justify-center items-center">
       <Head>
         <title>Quiz App</title>
         <link rel="icon" href="/favicon.ico" />
