@@ -67,9 +67,9 @@ const Home: NextPage = () => {
 
       {
         showScore ? (
-          <div className="max-w-lg">
-            <h1 className="text-3xl font-semibold text-center text-white">
-              You scored {score}!
+          <div className="max-w-lg border-stone-600 border-2 p-8 m-4 rounded-xl">
+            <h1 className="text-3xl font-semibold text-center  text-stone-300">
+              What others think about you...
             </h1>
 
             <p className="text-xl text-center text-white py-3">{result}</p>
