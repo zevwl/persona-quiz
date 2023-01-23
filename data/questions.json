@@ -42,8 +42,7 @@
       { "answer": "a big, appreciative laugh", "points": 6 },
       { "answer": "a laugh, but not a loud one", "points": 4 },
       { "answer": "a quiet chuckle", "points": 3 },
-      { "answer": "a sheepish smile", "points": 5 },
-      { "answer": "", "points": 2 }
+      { "answer": "a sheepish smile", "points": 5 }
     ]
   },
   {
